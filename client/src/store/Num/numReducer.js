@@ -2,7 +2,6 @@ import { DEC, INC, ADD, RESET } from './numType';
 
 const initialState = {
   num: 0,
-  //   isNum: false,
 };
 
 const numReducer = (state = initialState, action) => {

@@ -1,5 +1,5 @@
 import React from 'react';
-import { useSelector, useDispatch } from 'react-redux';
+import { connect } from 'react-redux';
 import {
   decrementFn,
   incrementFn,
@@ -7,38 +7,32 @@ import {
   resetFn,
 } from '../store/Num/numAction';
 
-const Number = () => {
-  const num = useSelector((state) => state.num);
-  const show = useSelector((state) => state.isNum);
-  const dispatch = useDispatch();
-
-  const increment = () => {
-    dispatch(incrementFn());
-  };
-
-  const decrement = () => {
-    dispatch(decrementFn());
-  };
-
-  const add = () => {
-    dispatch(addFn());
-  };
-
-  const reset = () => {
-    dispatch(resetFn());
-  };
+const Number = (props) => {
   return (
     <div>
-      {' '}
       <h1>Counter</h1>
-      <p>{num}</p>
-      <p>{show}</p>
-      <button onClick={increment}>INC</button>
-      <button onClick={decrement}>DEC</button>
-      <button onClick={add}>ADD</button>
-      <button onClick={reset}>RESET</button>
+      <p>{props.num}</p>
+      <button onClick={props.increment}>INC</button>
+      <button onClick={props.decrement}>DEC</button>
+      <button onClick={props.add}>ADD</button>
+      <button onClick={props.reset}>RESET</button>
     </div>
   );
 };
 
-export default Number;
+const mapStateToProps = (state) => {
+  return {
+    num: state.num,
+  };
+};
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    increment: () => dispatch(incrementFn()),
+    decrement: () => dispatch(decrementFn()),
+    add: () => dispatch(addFn()),
+    reset: () => dispatch(resetFn()),
+  };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(Number);
