@@ -1,25 +1,6 @@
 import { legacy_createStore as createStore } from 'redux';
-import { DEC, INC } from './numType';
+import numReducer from './Num/numReducer';
 
-const initialState = {
-  num: 0,
-};
-
-const reducer = (state = initialState, action) => {
-  switch (action.type) {
-    case INC:
-      return {
-        num: state.num + 1,
-      };
-    case DEC:
-      return {
-        num: state.num - 1,
-      };
-    default:
-      return state;
-  }
-};
-
-const store = createStore(reducer);
+const store = createStore(numReducer);
 
 export default store;
