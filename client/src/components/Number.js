@@ -1,5 +1,11 @@
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
+import {
+  decrementFn,
+  incrementFn,
+  addFn,
+  resetFn,
+} from '../store/Num/numAction';
 
 const Number = () => {
   const num = useSelector((state) => state.num);
@@ -7,19 +13,19 @@ const Number = () => {
   const dispatch = useDispatch();
 
   const increment = () => {
-    dispatch({ type: 'INC' });
+    dispatch(incrementFn());
   };
 
   const decrement = () => {
-    dispatch({ type: 'DEC' });
+    dispatch(decrementFn());
   };
 
   const add = () => {
-    dispatch({ type: 'ADD', payload: 10 });
+    dispatch(addFn());
   };
 
   const reset = () => {
-    dispatch({ type: 'RESET' });
+    dispatch(resetFn());
   };
   return (
     <div>

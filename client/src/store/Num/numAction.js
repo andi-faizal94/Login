@@ -1,25 +1,25 @@
 import { DEC, INC, RESET, ADD } from './numType';
 
-export const decrement = () => {
+export const decrementFn = () => {
   return {
     type: DEC,
   };
 };
 
-export const increment = () => {
+export const incrementFn = () => {
   return {
     type: INC,
   };
 };
 
-export const add = () => {
+export const addFn = () => {
   return {
     type: ADD,
     payload: 10,
   };
 };
 
-export const reset = () => {
+export const resetFn = () => {
   return {
     type: RESET,
   };

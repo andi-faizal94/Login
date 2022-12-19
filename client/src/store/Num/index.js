@@ -1,1 +1,1 @@
-export * from './numAction';
+export { increment, decrement, add, reset } from './numAction';
