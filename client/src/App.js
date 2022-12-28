@@ -1,10 +1,12 @@
 import './App.css';
-import Number from './components/Number';
+// import Number from './components/Number';
+import Table from './components/Table';
 
 function App() {
   return (
     <div className='App'>
-      <Number />
+      {/* <Number /> */}
+      <Table />
     </div>
   );
 }
